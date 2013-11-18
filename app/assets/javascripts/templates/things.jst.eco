@@ -4,6 +4,7 @@ Collection of Things
   <% for thing in @thingsToShow(): %>
     <div class="list-group-item" data-id="<%= thing.id %>">
       <%= thing.get 'content' %>
+      <input type="checkbox" <%= if thing.get('checked') then "checked" %>></input>
     </div>
   <% end %>
 </div>

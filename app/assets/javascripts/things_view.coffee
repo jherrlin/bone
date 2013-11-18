@@ -12,3 +12,10 @@ class App.Views.Things extends App.View
   thingsToShow: ->
     @collection.filter (thing) =>
       (@thingState == 'checked') == thing.get('checked')
+
+  events:
+    'click input[type=checkbox]': 'checkboxClicked'
+
+  checkboxClicked: (e) ->
+    thing = @collection.get ($ e.target).parent().data('id')
+    thing.save checked: (not thing.get 'checked')
